@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bs" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timovi</title>
+    <style>
+        body{font-family: Arial, sans-serif; margin: 30px; background: #f5f7fa;}
+        table {border-collapse: collapse; width: 70%;}
+        nav a{margin-right: 15px; color: #2c5282; font-weight: bold; text-decoration: none}
+        h2{color: #1f3a5f}
+        table{border-collapse: collapse; width: 100%; background: #fff}
+        th, td {padding: 10px; text-align: left; border-bottom: 1px solid #ddd;}
+        th{background: #2c5282; color: #fff; }
+        tr:hover {background: #e8f0fb;}
+    </style>
+</head>
+
+<body>
+<nav>
+    <a href="/a">Timovi</a>
+    <a href="/b">Igrači</a>
+</nav>
+
+<h2>Timovi</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Naziv tima</th>
+        <th>Grad</th>
+        <th>Godina osnivanja</th>
+    </tr>
+
+    <tbody>
+    <tr th:each="team : ${teams}">
+
+        <td th:text="${team.id}"></td>
+        <td th:text="${team.nazivTima}"></td>
+        <td th:text="${team.grad}"></td>
+        <td th:text="${team.godinaOsnivanja}"></td>
+
+    <tr>
+    </tbody>
+</table>
+</body>
+</html>

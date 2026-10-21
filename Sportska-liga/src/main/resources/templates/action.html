@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bs" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Detalji tima</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 30px; background: #f5f7fa;}
+        nav a {margin-right: 15px; color: #2c5282; font-weight: bold; text-decoration: none;}
+        h2{color: #1f3a5f; }
+        .box {background: #2c5282; padding: 15px; margin-bottom: 20px; border-left: 5px solid #2c5282;}
+        table{border-collapse: collapse; width: 100%; background: #fff;}
+        th,td{padding: 10px; text-align: left; border-bottom: 1px solid #ddd}
+        th{background: #e8f0fb;}
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/a">Timovi</a>
+    <a href="/b">Igrači</a>
+</nav>
+
+
+<h2>Detalji tima</h2>
+
+<div class="box" th:if="${team!= null}">
+    <p><strong th:text="${team.nazivTima}"></strong> </p>
+    <p>Grad: <span th:text="${team.grad}"></span>  </p>
+    <p>Godina osnivanja: <span th:text="${team.godinaOsnivanja}"></span> </p>
+
+</div>
+<p th:if="${team == null}">Tim nije pronađen.</p>
+
+<h3>Igrači tima</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Ime i prezime</th>
+        <th>Pozicija</th>
+        <th>Broj dresa</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="p : ${players}">
+        <td th:text="${p.imePrezime}"></td>
+        <td th:text="${p.pozicija}"></td>
+        <td th:text="${p.brojDresa}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/a"><-Nazad na timove</a> </p>
+</body>
+
+</html>
