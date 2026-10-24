@@ -122,10 +122,9 @@ Podaci su izmišljeni i služe samo za demonstraciju.
 **Preduslovi:** instaliran JDK 25 i Maven (ili IntelliJ IDEA, koji ih može koristiti ugrađeno).
 
 **IntelliJ IDEA**
-1. Otvori folder projekta (onaj u kojem je `pom.xml`) preko *File → Open*.
-2. U *File → Project Structure → Project* postavi SDK na 25.
-3. Desni klik na `pom.xml` → *Maven → Reload project*.
-4. Pokreni klasu `SportskaLigaApplication`.
+1. U *File → Project Structure → Project* postavi SDK na 25.
+2. Desni klik na `pom.xml` → *Maven → Reload project*.
+3. Pokreni klasu `SportskaLigaApplication`.
 
 **Terminal**
 ```
@@ -144,9 +143,8 @@ Prva verzija projekta nije se mogla pokrenuti, pa je napravljena nova, ispravlje
 
 **Struktura i konfiguracija**
 - Java klase su premještene iz `src/main/resources` u `src/main/java`, jer Maven samo tamo kompajlira izvorni kod.
-- Paketi su usklađeni sa strukturom foldera (`com.example.Sportska.liga.model`, `...data`, `...controller`), tako da ih Spring pronalazi.
+- Paketi su usklađeni sa strukturom foldera (`com.example.sportskaligaines.model`, `...data`, `...controller`), tako da ih Spring pronalazi.
 - Test klasa je premještena u `src/test/java`.
-- U `pom.xml` je ispravljen `artifactId` (razmak nije dozvoljen), postavljena je Java 25, a nekorištena Lombok zavisnost je uklonjena.
 
 **Modeli**
 - `Team`: metode `getGodinaOsnivanja()` i `getPlayers()` su pozivale same sebe (beskonačna rekurzija); sada vraćaju polja. ID je promijenjen u `Long`, a lista igrača se inicijalizira pri kreiranju objekta.
